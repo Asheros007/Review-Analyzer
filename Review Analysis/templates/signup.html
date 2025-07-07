@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="{% static 'css/style1.css' %}" />
+</head>
+<body>
+  <form method="POST" action="{% url 'signup' %}">
+    {% csrf_token %}
+    <div class="logo">R|A</div>
+    <h1 class="title">Create Account</h1>
+
+    <input type="email" name="email" class="input-field" placeholder="Email address" required autofocus>
+    <input type="password" name="password" class="input-field" placeholder="Password" required>
+    <input type="password" name="password_confirm" class="input-field" placeholder="Confirm Password" required>
+
+    <button class="btn-submit" type="submit">Sign Up</button>
+  </form>
+</body>
+</html>

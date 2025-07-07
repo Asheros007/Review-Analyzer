@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Review Summarizer</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+</head>
+<body>
+    <div class="container">
+        <h1>Review Analyzer</h1>
+
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+
+        <form method="POST" action="{% url 'home' %}">
+            {% csrf_token %}
+            
+            <label for="review_text">Paste Review Text</label>
+            <textarea name="review_text" id="review_text" rows="7" placeholder="Paste your product reviews here..."></textarea>
+
+            <p style="text-align: center; font-weight: 600; color: #777;">OR</p>
+
+            <label for="review_url">Enter Product Review URL</label>
+            <input
+                type="text"
+                name="review_url"
+                id="review_url"
+                placeholder="https://www.example.com/product-reviews/12345"
+            />
+
+            <button type="submit">Analyze Review</button>
+        </form>
+    </div>
+</body>
+</html>

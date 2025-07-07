@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Analysis Result</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Analysis Result</h1>
+
+        <div class="result-box">
+            <h2>Review Source:</h2>
+            <p>{{ source }}</p>
+        </div>
+
+        <div class="result-box">
+            <h2>Full Review Text</h2>
+            <p>{{ review }}</p>
+        </div>
+
+        <div class="result-box">
+            <h2>Sentiment</h2>
+            <p><strong>Label:</strong> {{ sentiment }}</p>
+            <p><strong>Recommended:</strong> {{ positive_percentage }}%</p>
+        </div>
+
+        <div class="result-box">
+            <h2>Summary</h2>
+            <p>{{ summary }}</p>
+        </div>
+
+        <a href="{% url 'home' %}"><button>Analyze Another</button></a>
+    </div>
+</body>
+</html>
